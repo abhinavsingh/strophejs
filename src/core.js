@@ -3265,6 +3265,8 @@ Strophe.Connection.prototype = {
 
         this._addSysHandler(this._sasl_auth1_cb.bind(this), null,
                             "stream:features", null, null);
+        this._addSysHandler(this._sasl_auth1_cb.bind(this), null,
+                            "features", null, null);
 
         // we must send an xmpp:restart now
         this._sendRestart();
