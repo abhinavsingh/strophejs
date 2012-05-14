@@ -8,7 +8,14 @@ NDPROJ_DIR = ndproj
 BASE_FILES = $(SRC_DIR)/base64.js \
 	$(SRC_DIR)/sha1.js \
 	$(SRC_DIR)/md5.js \
-	$(SRC_DIR)/core.js
+	$(SRC_DIR)/top.js \
+	$(SRC_DIR)/strophe.js \
+	$(SRC_DIR)/strophe.builder.js \
+	$(SRC_DIR)/strophe.handler.js \
+	$(SRC_DIR)/strophe.timedhandler.js \
+	$(SRC_DIR)/strophe.request.js \
+	$(SRC_DIR)/strophe.connection.js \
+	$(SRC_DIR)/bottom.js
 
 STROPHE = strophe.js
 STROPHE_MIN = strophe.min.js
