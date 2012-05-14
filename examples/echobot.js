@@ -1,4 +1,4 @@
-var BOSH_SERVICE = '/xmpp-httpbind';
+var BOSH_SERVICE = 'http://127.0.0.1:9696/http-bind';
 var connection = null;
 
 function log(msg) 
@@ -35,16 +35,16 @@ function onMessage(msg) {
     var elems = msg.getElementsByTagName('body');
 
     if (type == "chat" && elems.length > 0) {
-	var body = elems[0];
+    	var body = elems[0];
 
-	log('ECHOBOT: I got a message from ' + from + ': ' + 
-	    Strophe.getText(body));
+    	log('ECHOBOT: I got a message from ' + from + ': ' + 
+    			Strophe.getText(body));
     
-	var reply = $msg({to: from, from: to, type: 'chat'})
-            .cnode(Strophe.copyElement(body));
-	connection.send(reply.tree());
+    	var reply = $msg({to: from, from: connection.jid, type: 'chat'})
+    				.cnode(Strophe.copyElement(body));
+    	connection.send(reply.tree());
 
-	log('ECHOBOT: I sent ' + from + ': ' + Strophe.getText(body));
+    	log('ECHOBOT: I sent ' + from + ': ' + Strophe.getText(body));
     }
 
     // we must return true to keep the handler alive.  
